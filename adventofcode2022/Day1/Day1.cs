@@ -1,4 +1,6 @@
-﻿using adventofcode2022.Helpers;
+﻿using System.Collections.Generic;
+using System.Linq;
+using adventofcode2022.Helpers;
 
 namespace adventofcode2022.Day1;
 

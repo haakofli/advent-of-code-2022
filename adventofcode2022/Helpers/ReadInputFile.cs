@@ -1,4 +1,9 @@
-﻿namespace adventofcode2022.Helpers;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace adventofcode2022.Helpers;
 
 public interface IReadInputFile
 {
