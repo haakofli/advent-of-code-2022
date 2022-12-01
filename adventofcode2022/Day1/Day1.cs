@@ -5,8 +5,8 @@ namespace adventofcode2022.Day1;
 public class Day1
 {
     private readonly IReadInputFile _readInputFile;
-    private IEnumerable<IEnumerable<int>> _groupedListsOfCalories;
-    private int[] _sumOfValues;
+    private IEnumerable<IEnumerable<int>> _groupedListsOfCalories = new IEnumerable<int>[]{ };
+    private int[] _sumOfValues = { };
 
     public Day1(IReadInputFile readInputFile)
     {
