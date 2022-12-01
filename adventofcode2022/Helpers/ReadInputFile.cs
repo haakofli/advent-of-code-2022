@@ -3,15 +3,38 @@
 public interface IReadInputFile
 {
     int[] GetInputAsListOfInts(string path);
+    IEnumerable<IEnumerable<int>> GetGroupOfInts(string path);
 }
 
 public class ReadInputFile : IReadInputFile
 {
-    private static readonly string basePath = @"C:\programmering\adventofcode2022\adventofcode2022\";
+    private const string BasePath = @"C:\programmering\adventofcode2022\adventofcode2022\";
 
     public int[] GetInputAsListOfInts(string path)
     {
-        var readText = File.ReadAllLines(basePath + path);
+        var readText = File.ReadAllLines(BasePath + path);
         return readText.Select(int.Parse).ToArray();
+    }
+
+    public IEnumerable<IEnumerable<int>> GetGroupOfInts(string path)
+    {
+        var readText = File.ReadAllLines(BasePath + path);
+        var temp = new List<int>();
+        var result = new List<List<int>>();
+
+        foreach (string entry in readText)
+        {
+            if (entry == "")
+            {
+                result.Add(temp);
+                temp = new List<int>();
+            }
+            else
+            {
+                temp.Add(Int32.Parse(entry));
+            }
+        }
+
+        return result;
     }
 }
