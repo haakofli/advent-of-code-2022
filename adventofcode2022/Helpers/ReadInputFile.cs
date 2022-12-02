@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace adventofcode2022.Helpers;
+﻿namespace adventofcode2022.Helpers;
 
 public interface IReadInputFile
 {
     int[] GetInputAsListOfInts(string path);
     IEnumerable<IEnumerable<int>> GetGroupOfInts(string path);
+    IEnumerable<string> GetListOfStringsFromInput(string path);
 }
 
 public class ReadInputFile : IReadInputFile
@@ -41,5 +37,11 @@ public class ReadInputFile : IReadInputFile
         }
 
         return result;
+    }
+
+    public IEnumerable<string> GetListOfStringsFromInput(string path)
+    {
+        var readText = File.ReadAllLines(BasePath + path);
+        return readText;
     }
 }
