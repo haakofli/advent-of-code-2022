@@ -2,13 +2,14 @@
 using Microsoft.Extensions.Hosting;
 using adventofcode2022.Day1;
 using adventofcode2022.Day2;
+using adventofcode2022.Day3;
 using adventofcode2022.Helpers;
 
 using IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((_, services) =>
         services.AddSingleton<IReadInputFile, ReadInputFile>()
             // TODO: Update new day here!
-            .AddTransient<Day2>())
+            .AddTransient<Day3>())
     .Build();
 
 var serviceScope = host.Services.CreateScope();
@@ -16,8 +17,8 @@ IServiceProvider provider = serviceScope.ServiceProvider;
 
 
 // TODO: Update new day here!
-var dayNum = 2;
-var currentDay = provider.GetRequiredService<Day2>();
+var dayNum = 3;
+var currentDay = provider.GetRequiredService<Day3>();
 var resultPart1 = currentDay.Part1();
 
 var resultPart2 = currentDay.Part2();
