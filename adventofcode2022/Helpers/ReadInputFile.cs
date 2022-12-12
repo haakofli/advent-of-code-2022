@@ -5,6 +5,7 @@ public interface IReadInputFile
     int[] GetInputAsListOfInts(string path);
     IEnumerable<IEnumerable<int>> GetGroupOfInts(string path);
     IEnumerable<string> GetListOfStringsFromInput(string path);
+    string ReplaceCharInStringAtIndex(string input, int index, char newChar);
 }
 
 public class ReadInputFile : IReadInputFile
@@ -43,5 +44,16 @@ public class ReadInputFile : IReadInputFile
     {
         var readText = File.ReadAllLines(BasePath + path);
         return readText;
+    }
+    
+    public string ReplaceCharInStringAtIndex(string input, int index, char newChar)
+    {
+        if (input == null)
+        {
+            throw new ArgumentNullException(nameof(input));
+        }
+        char[] chars = input.ToCharArray();
+        chars[index] = newChar;
+        return new string(chars);
     }
 }
