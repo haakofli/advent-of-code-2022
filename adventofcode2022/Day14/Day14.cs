@@ -1,5 +1,4 @@
-﻿using System.Text;
-using adventofcode2022.Helpers;
+﻿using adventofcode2022.Helpers;
 
 namespace adventofcode2022.Day14;
 
@@ -38,12 +37,8 @@ public class Day14
         var (startX, startY, map) = CreateRockFormations(lines, x1, x2, y1, y2);
 
         for (int i = 0; i < x2-x1; i++)
-        {
-            StringBuilder sb = new StringBuilder(map[y2-2]);
-            sb[i] = '#';
-            map[y2-2] = sb.ToString();
-        }
-        
+            map[y2 - 2] = _helper.ReplaceCharInStringAtIndex(map[y2 - 2], i, '#');
+
         bool isAbyss = false;
         var sandCount = 0;
         while (!isAbyss)
